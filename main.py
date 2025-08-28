@@ -10,7 +10,7 @@ import json
 app = FastAPI()
 
 # Load YOLO model
-model = YOLO("Weights/best.pt")
+model = YOLO("best.pt")
 
 # Define class names (must match your dataset classes)
 classNames = [
@@ -67,3 +67,4 @@ async def detect_image(file: UploadFile = File(...)):
 
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
